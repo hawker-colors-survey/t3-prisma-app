@@ -67,7 +67,7 @@ export function FirstPage({ onNext }: { onNext: () => void }) {
               orientation={"down"}
               loading={!Boolean(coloured || white)}
               loaderPosition="center"
-              onClick={onNext}
+              onClick={() => onNext()}
             ></Button>
           </Center>
         </Box>

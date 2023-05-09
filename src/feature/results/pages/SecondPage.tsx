@@ -72,7 +72,7 @@ export function SecondPage({ onNext }: { onNext: () => void }) {
       </Text>
 
       {data.name && <ColourStack data={data}></ColourStack>}
-      <Button onClick={onNext}>Click Next</Button>
+      <Button onClick={() => onNext()}>Click Next</Button>
     </>
   );
 }
