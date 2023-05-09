@@ -3,7 +3,9 @@ import type {
   Actions,
   IntroSurveyStructure,
   JourneyStateStructure,
+  PageKeys,
   PageStructure,
+  ValueOf,
 } from "../types";
 
 export const useJourney = (
@@ -16,11 +18,15 @@ export const useJourney = (
   );
   const { step } = journey;
 
-  function handleNext(value: Partial<IntroSurveyStructure>) {
+  function handleNext(value?: ValueOf<IntroSurveyStructure>) {
     const { key } = pages[step] || { key: "" };
-
-    const payload = key ? { [key]: value } : {};
-    dispatch({ type: NEXT, payload: value ? payload : {} });
+    if (!Boolean(key)) dispatch({ type: NEXT });
+    else {
+      const payload = {
+        [key as PageKeys]: value,
+      } as Partial<IntroSurveyStructure>;
+      dispatch({ type: NEXT, payload });
+    }
   }
 
   function handleBack() {
@@ -37,7 +43,7 @@ function journeyReducer(
   const { type } = action;
   switch (type) {
     case NEXT: {
-      const { payload = {} } = action;
+      const payload = action.payload ?? {};
       const newState: JourneyStateStructure = {
         step: state.step + 1,
         answers: { ...state.answers, ...payload },

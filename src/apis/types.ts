@@ -55,8 +55,8 @@ export type FieldsStructure = Foods & {
   year: string;
   location: string;
   frequency: number;
-  isHalal?: boolean;
-  isColourBlind?: boolean;
+  isHalal: boolean;
+  isColourBlind: boolean;
   ColourPreference: ColourPref;
 };
 
