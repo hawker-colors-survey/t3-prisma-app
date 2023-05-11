@@ -17,13 +17,13 @@ export function RedHot({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Red Hot Competition
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           N.M. Abdul Rahim
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Ayer Rajah Food Centre
         </Title>
       </Stack>
@@ -37,7 +37,7 @@ export function RedHot({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
 
           <InteractiveStack>
             <QuoteSpan
@@ -46,11 +46,11 @@ export function RedHot({ handleBack }: { handleBack: () => void }) {
             ></QuoteSpan>
           </InteractiveStack>
 
-          <Text align={"left"}>{bodyText[1]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
           <ThirdFoodGrid />
 
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>
@@ -140,7 +140,7 @@ function FirstFoodGrid() {
         </Center>
       </Grid.Col>
       <Grid.Col span={1} style={{ marginTop: "-200px" }}>
-        <Flex direction={"column"} align={"space-around"}>
+        <Flex direction="column" align="space-around">
           <ImagesWithNamePopup
             filename="KwayTeowGoreng"
             style={{
@@ -188,7 +188,7 @@ function SecondFoodGrid() {
           marginLeft: "-25px",
         }}
       >
-        <Flex direction={"column"} align={"space-around"}>
+        <Flex direction="column" align="space-around">
           <ImagesWithNamePopup
             filename="MuttonSteak"
             style={{ width: "100%" }}

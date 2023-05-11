@@ -1,6 +1,6 @@
-import { Button, Modal } from '@mantine/core';
-import { useState } from 'react';
-import { Navigation } from './Navigation';
+import { Button, Modal } from "@mantine/core";
+import { useState } from "react";
+import { Navigation } from "./Navigation";
 
 export const NavigationModal = () => {
   const [isOpen, setIsOpen] = useState(false);

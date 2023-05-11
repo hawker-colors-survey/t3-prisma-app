@@ -9,13 +9,13 @@ export function JustFollowYellow({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           “Just Follow” Yellow
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Selamat Datang Warong Pak Sapari
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Adam Road Food Centre
         </Title>
       </Stack>
@@ -29,12 +29,12 @@ export function JustFollowYellow({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
-          <Text align={"left"}>{bodyText[1]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
 
           <InteractiveImageStack></InteractiveImageStack>
 
-          <Text align={"left"}>{bodyText[4]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/3.webp`}
             alt=""
@@ -46,8 +46,8 @@ export function JustFollowYellow({ handleBack }: { handleBack: () => void }) {
             }}
           />
           <QuoteSpan text={quoteText} subText="says Sumadi."></QuoteSpan>
-          <Text align={"left"}>{bodyText[5]}</Text>
-          <Text align={"left"}>{bodyText[6]}</Text>
+          <Text align="left">{bodyText[5]}</Text>
+          <Text align="left">{bodyText[6]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>
@@ -100,7 +100,7 @@ function InteractiveImageStack() {
           marginBottom: "-2px", // to remove white line
         }}
       >
-        <Stack spacing={"xl"} align="center">
+        <Stack spacing="xl" align="center">
           {/* <Image
             src={`/images/peoples-palette/just-follow-yellow/1-${noodleState}.webp`}
             alt=""
@@ -139,7 +139,7 @@ function InteractiveImageStack() {
               );
             })}
           </Flex>
-          <Flex align={"center"} justify={"center"} direction={"row"} gap="xl">
+          <Flex align="center" justify="center" direction="row" gap="xl">
             <BlackButton
               style={{ width: "40dvw" }}
               onClick={() => {
@@ -158,8 +158,8 @@ function InteractiveImageStack() {
             </BlackButton>
           </Flex>
 
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
 
           <Flex
             mih={130}
@@ -189,7 +189,7 @@ function InteractiveImageStack() {
             })}
           </Flex>
 
-          <Flex align={"center"} justify={"center"} direction={"row"} gap="xl">
+          <Flex align="center" justify="center" direction="row" gap="xl">
             <BlackButton
               style={{ width: "40dvw" }}
               onClick={() => {

@@ -7,10 +7,10 @@ export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Elevating a Humble Hawker Icon
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Yong Jieyu
         </Title>
       </Stack>
@@ -24,7 +24,7 @@ export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <QuoteSpan text={quoteText} subText="he says."></QuoteSpan>
           <Image
             src={`/images/peoples-palette/${fileName}/1.webp`}
@@ -36,9 +36,9 @@ export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/2.webp`}
             alt=""
@@ -49,9 +49,9 @@ export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[4]}</Text>
-          <Text align={"left"}>{bodyText[5]}</Text>
-          <Text align={"left"}>{bodyText[6]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
+          <Text align="left">{bodyText[5]}</Text>
+          <Text align="left">{bodyText[6]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>

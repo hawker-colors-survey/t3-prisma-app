@@ -1,1 +1,1 @@
-export * from './PeoplesPaletteLayout';
+export * from "./PeoplesPaletteLayout";

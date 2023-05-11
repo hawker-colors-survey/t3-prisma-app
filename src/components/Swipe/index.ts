@@ -1,2 +1,2 @@
-export * from './Select';
-export * from './Pager';
+export * from "./Select";
+export * from "./Pager";

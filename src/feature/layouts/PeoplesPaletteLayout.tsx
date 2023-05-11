@@ -61,11 +61,11 @@ export function PeoplesPaletteLayout({
           }}
         >
           <Center>
-            <BlackButton size="md" w={"120px"} onClick={handleClick}>
+            <BlackButton size="md" w="120px" onClick={handleClick}>
               Home
             </BlackButton>
           </Center>
-          <Space h={"lg"}></Space>
+          <Space h="lg"></Space>
           {headerNode}
         </Box>
       </Center>
@@ -73,7 +73,7 @@ export function PeoplesPaletteLayout({
         <Stack spacing="lg">
           {children}
           <Center>
-            <BlackButton size="md" w={"120px"} onClick={handleClick}>
+            <BlackButton size="md" w="120px" onClick={handleClick}>
               Home
             </BlackButton>
           </Center>

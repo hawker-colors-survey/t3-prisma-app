@@ -1,12 +1,12 @@
-import { Box } from '@mantine/core';
+import { Box } from "@mantine/core";
 
 export const Background = () => (
   <>
     <Box
       style={{
-        backgroundColor: '#F8C40B',
+        backgroundColor: "#F8C40B",
         zIndex: -999,
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         bottom: 0,
         right: 0,
@@ -15,14 +15,14 @@ export const Background = () => (
     />
     <Box
       style={{
-        position: 'absolute',
-        marginLeft: '-60%',
-        top: '5dvh',
-        width: '190dvw',
-        height: '95dvh',
-        backgroundColor: '#CDBAFF',
+        position: "absolute",
+        marginLeft: "-60%",
+        top: "5dvh",
+        width: "190dvw",
+        height: "95dvh",
+        backgroundColor: "#CDBAFF",
         zIndex: -99,
-        borderRadius: '90% 100% 0 0',
+        borderRadius: "90% 100% 0 0",
       }}
     />
   </>

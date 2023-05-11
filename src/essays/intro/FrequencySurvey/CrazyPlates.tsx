@@ -1,4 +1,4 @@
-import { Box, Image } from '@mantine/core';
+import { Box, Image } from "@mantine/core";
 
 const plates = [
   { size: 120, x: 40, y: 30 },
@@ -11,7 +11,7 @@ const plates = [
 ];
 
 export const CrazyPlates = ({ freq }: { freq: number | undefined }) => (
-  <Box style={{ position: 'relative' }}>
+  <Box style={{ position: "relative" }}>
     {plates.map(({ size, x, y }, idx) => {
       if (freq === undefined) return null;
       if (freq < idx + 1) return null;
@@ -19,7 +19,7 @@ export const CrazyPlates = ({ freq }: { freq: number | undefined }) => (
         <Box
           key={idx}
           style={{
-            position: 'absolute',
+            position: "absolute",
             width: `${size}px`,
             height: `${size}px`,
             left: `${x}dvw`,

@@ -1,4 +1,4 @@
-import { Radio } from '@mantine/core';
+import { Radio } from "@mantine/core";
 
 interface Option {
   value: string;
@@ -14,11 +14,11 @@ interface FilterSelectProps {
 export function FilterSelect({
   options,
   onChange,
-  initialValue = 'any',
+  initialValue = "any",
 }: FilterSelectProps) {
   function handleChange(option: string) {
     const selected = options.find(({ value }) => value === option);
-    if (typeof selected === 'undefined') return;
+    if (typeof selected === "undefined") return;
     onChange(selected);
   }
 

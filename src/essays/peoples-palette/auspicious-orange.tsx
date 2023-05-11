@@ -7,13 +7,13 @@ export function AuspiciousOrange({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Auspicious Orange
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           China Street Fritters
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Maxwell Food Centre
         </Title>
       </Stack>
@@ -27,7 +27,7 @@ export function AuspiciousOrange({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/1.webp`}
             alt=""
@@ -38,7 +38,7 @@ export function AuspiciousOrange({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/2.webp`}
             alt=""
@@ -49,8 +49,8 @@ export function AuspiciousOrange({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/3.webp`}
             alt=""

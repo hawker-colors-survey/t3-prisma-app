@@ -7,10 +7,10 @@ export function SavingMemories({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Saving Her Colourful Memories
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Kwa Li Ying
         </Title>
       </Stack>
@@ -24,7 +24,7 @@ export function SavingMemories({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <QuoteSpan
             text={quoteText}
             subText="says the recent graduate of the National University of Singapore's Division of Industrial Design."
@@ -39,24 +39,24 @@ export function SavingMemories({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
           <ScrollArea
-            left={"-10%"}
-            w={"120%"}
-            h={"auto"}
+            left="-10%"
+            w="120%"
+            h="auto"
             style={{ overflowX: "scroll" }}
           >
             <Box>
               <Image
                 src={`/images/peoples-palette/${fileName}/2.webp`}
                 alt=""
-                width={"190%"}
+                width="190%"
               />
             </Box>
           </ScrollArea>
 
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/3.webp`}
             alt=""
@@ -67,9 +67,9 @@ export function SavingMemories({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[4]}</Text>
-          <Text align={"left"}>{bodyText[5]}</Text>
-          <Text align={"left"}>{bodyText[6]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
+          <Text align="left">{bodyText[5]}</Text>
+          <Text align="left">{bodyText[6]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>

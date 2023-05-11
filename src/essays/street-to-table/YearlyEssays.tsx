@@ -42,12 +42,7 @@ function YearLayout({
         >
           <Grid.Col span={3}>{headerNode}</Grid.Col>
           <Grid.Col span={1}>
-            <Flex
-              direction="row"
-              justify={"flex-end"}
-              align={"flex-end"}
-              h="100%"
-            >
+            <Flex direction="row" justify="flex-end" align="flex-end" h="100%">
               <Button orientation="down" size="sm" />
             </Flex>
           </Grid.Col>
@@ -160,12 +155,7 @@ export function Year1970s() {
           bags with their breath.
         </Text>
 
-        <ScrollArea
-          left={"0%"}
-          w={"100%"}
-          h={"auto"}
-          style={{ overflowX: "scroll" }}
-        >
+        <ScrollArea left="0%" w="100%" h="auto" style={{ overflowX: "scroll" }}>
           <Image
             src="/images/street-to-table/1970s/1.webp"
             alt=""
@@ -183,12 +173,7 @@ export function Year1970s() {
           which were prone to wear out under heavy use.
         </Text>
 
-        <ScrollArea
-          left={"0%"}
-          w={"100%"}
-          h={"auto"}
-          style={{ overflowX: "scroll" }}
-        >
+        <ScrollArea left="0%" w="100%" h="auto" style={{ overflowX: "scroll" }}>
           <Image
             src="/images/street-to-table/1970s/2.webp"
             alt=""

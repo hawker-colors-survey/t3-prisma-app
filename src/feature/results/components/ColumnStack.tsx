@@ -79,10 +79,10 @@ const SingleColumnStack = ({
           }}
         >
           <Stack spacing={0} justify="center" align="stretch">
-            <Text span size={"md"} ta="center" fw={700}>
+            <Text span size="md" ta="center" fw={700}>
               {textContent}
             </Text>
-            <Text span size={"md"} ta="center" fw={700}>
+            <Text span size="md" ta="center" fw={700}>
               {`${percentage}%`}
             </Text>
           </Stack>

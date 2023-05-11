@@ -1,4 +1,4 @@
-import { Text } from '@mantine/core';
+import { Text } from "@mantine/core";
 
 export function QuoteSpan({
   text,
@@ -9,11 +9,11 @@ export function QuoteSpan({
 }) {
   return (
     <>
-      <Text span align={'left'} size={24} fs="italic">
+      <Text span align="left" size={24} fs="italic">
         {`\“`}
         {text}
         {`\”     `}
-        <Text span align={'left'} size={18} fs="normal">
+        <Text span align="left" size={18} fs="normal">
           {subText}
         </Text>
         {/* pass in children */}

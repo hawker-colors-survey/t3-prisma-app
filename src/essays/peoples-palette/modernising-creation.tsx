@@ -11,13 +11,13 @@ export function ModernisingCreation({
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"} c={"white"}>
+        <Title order={1} align="center" c="white">
           Modernising His Mum&apos;s Creation
         </Title>
-        <Title order={4} align={"center"} c={"white"}>
+        <Title order={4} align="center" c="white">
           Mama&apos;s Curry
         </Title>
-        <Title order={4} align={"center"} c={"white"}>
+        <Title order={4} align="center" c="white">
           Golden Mile Food Centre
         </Title>
       </Stack>
@@ -31,7 +31,7 @@ export function ModernisingCreation({
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <Image
             src="/images/peoples-palette/modernising-creation/1BG.webp"
             alt=""
@@ -59,8 +59,8 @@ export function ModernisingCreation({
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
-          <Text align={"left"}>{bodyText[2]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/3.webp`}
             alt=""
@@ -71,8 +71,8 @@ export function ModernisingCreation({
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[3]}</Text>
-          <Text align={"left"}>{bodyText[4]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>

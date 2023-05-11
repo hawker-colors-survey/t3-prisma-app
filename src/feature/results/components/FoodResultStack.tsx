@@ -14,7 +14,7 @@ export function FoodResultStack({
   // modal logic here
   return (
     <Stack spacing={0} justify="center" align="stretch">
-      {offset ? <Space h={"50px"} /> : null}
+      {offset ? <Space h="50px" /> : null}
       <Box style={{ display: "flex", flexDirection: "column" }}>
         {records.map((record, index) => (
           <Box key={index}>

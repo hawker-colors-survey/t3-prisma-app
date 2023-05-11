@@ -7,13 +7,13 @@ export function NeutralSigns({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Black or White:
         </Title>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Neutral Signs
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Big Image Group and Phocept
         </Title>
       </Stack>
@@ -27,8 +27,8 @@ export function NeutralSigns({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
-          <Text align={"left"}>{bodyText[1]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/1.webp`}
             alt=""
@@ -50,8 +50,8 @@ export function NeutralSigns({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[2]}</Text>
-          <Text align={"left"}>{bodyText[3]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/3.webp`}
             alt=""
@@ -61,7 +61,7 @@ export function NeutralSigns({ handleBack }: { handleBack: () => void }) {
               position: "relative",
             }}
           />
-          <Text align={"left"}>{bodyText[4]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>

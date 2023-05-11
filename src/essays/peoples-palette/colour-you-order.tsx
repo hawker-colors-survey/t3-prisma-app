@@ -9,13 +9,13 @@ export function ColourYouOrder({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           You Are the Colour You Order
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Soon Lee Porridge
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Clementi 448 Food Centre
         </Title>
       </Stack>
@@ -29,7 +29,7 @@ export function ColourYouOrder({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/1.webp`}
             alt=""
@@ -40,8 +40,8 @@ export function ColourYouOrder({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
-          <Text align={"left"}>{bodyText[2]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/2.webp`}
             alt=""
@@ -57,8 +57,8 @@ export function ColourYouOrder({ handleBack }: { handleBack: () => void }) {
             subText="explains Benjamin Tan, a third-generation family member."
           ></QuoteSpan>
           <InteractiveStack />
-          <Text align={"left"}>{bodyText[3]}</Text>
-          <Text align={"left"}>{bodyText[4]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>
@@ -100,9 +100,9 @@ function InteractiveStack() {
       >
         <Stack spacing={0}>
           <Flex
-            align={"flex-end"}
-            justify={"center"}
-            direction={"column"}
+            align="flex-end"
+            justify="center"
+            direction="column"
             gap="xl"
             style={{
               position: "relative",

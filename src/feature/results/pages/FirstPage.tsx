@@ -48,7 +48,7 @@ export function FirstPage({ onNext }: { onNext: () => void }) {
         </Title>
         {Boolean(coloured || white) && (
           <>
-            <Text span size={"sm"}>
+            <Text span size="sm">
               {`Sample size: ${coloured + white}`}
             </Text>
             <TwoColumnStack coloured={coloured} white={white} />
@@ -64,7 +64,7 @@ export function FirstPage({ onNext }: { onNext: () => void }) {
         >
           <Center>
             <Button
-              orientation={"down"}
+              orientation="down"
               loading={!Boolean(coloured || white)}
               loaderPosition="center"
               onClick={() => onNext()}

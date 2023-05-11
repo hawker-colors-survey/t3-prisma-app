@@ -9,16 +9,16 @@ export function BetterColour({ handleBack }: { handleBack: () => void }) {
   const headerNode = (
     <>
       <Stack spacing={0}>
-        <Title order={1} align={"center"}>
+        <Title order={1} align="center">
           Always a Better Colour
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Noo Cheng Adam Road
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Big Prawn Mee
         </Title>
-        <Title order={4} align={"center"}>
+        <Title order={4} align="center">
           Adam Road Food Centre
         </Title>
       </Stack>
@@ -32,7 +32,7 @@ export function BetterColour({ handleBack }: { handleBack: () => void }) {
         handleBack={handleBack}
       >
         <>
-          <Text align={"left"}>{bodyText[0]}</Text>
+          <Text align="left">{bodyText[0]}</Text>
           <Image
             src={`/images/peoples-palette/${fileName}/1.webp`}
             alt=""
@@ -54,11 +54,11 @@ export function BetterColour({ handleBack }: { handleBack: () => void }) {
               left: "-10%",
             }}
           />
-          <Text align={"left"}>{bodyText[1]}</Text>
-          <Text align={"left"}>{bodyText[2]}</Text>
+          <Text align="left">{bodyText[1]}</Text>
+          <Text align="left">{bodyText[2]}</Text>
           <RevealAnswerStack />
-          <Text align={"left"}>{bodyText[3]}</Text>
-          <Text align={"left"}>{bodyText[4]}</Text>
+          <Text align="left">{bodyText[3]}</Text>
+          <Text align="left">{bodyText[4]}</Text>
         </>
       </PeoplesPaletteLayout>
     </>
@@ -98,8 +98,8 @@ function RevealAnswerStack() {
           marginBottom: "-2px", // to remove white line
         }}
       >
-        <Stack spacing={"xl"} align="center">
-          <Title align={"left"} order={3}>
+        <Stack spacing="xl" align="center">
+          <Title align="left" order={3}>
             {'Which colour is more "premium"?'}
           </Title>
 
