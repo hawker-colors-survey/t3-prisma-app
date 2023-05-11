@@ -29,7 +29,7 @@ export const userRouter = createTRPCRouter({
       const user = await ctx.prisma.user.findUnique({
         where: { email: input.userEmail },
       });
-      console.log({ guest, user });
+      // console.log({ guest, user });
 
       if (user === null) throw Error("User not found");
       if (guest === null) throw Error("Guest not found");
