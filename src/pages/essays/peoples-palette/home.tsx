@@ -13,9 +13,9 @@ import {
   ElevatingIcon,
   SavingMemories,
 } from "~/src/essays/peoples-palette";
-import { HomePage } from "~/src/feature/layouts";
+import { HomePage } from "~/src/feature/layouts/peoples-palette";
 
-export const Chapters = [
+export const chapters = [
   { id: 1, title: "Auspicious Orange", folder: "auspicious-orange" },
   { id: 2, title: "Blue for Peace, Not War", folder: "blue-for-peace" },
   { id: 3, title: '"Just Follow" Yellow', folder: "just-follow-yellow" },
@@ -50,7 +50,7 @@ export default function PeoplesPaletteHome() {
     else setCurrentIndex(idx);
   }
 
-  const chapterTitleArray = Chapters.map((chapter) => chapter.title);
+  const chapterTitleArray = chapters.map((chapter) => chapter.title);
 
   return (
     <>
@@ -68,10 +68,10 @@ export default function PeoplesPaletteHome() {
           style={{ width: "100dvw", overflowY: "hidden" }}
         >
           <HomePage
-            handleNewIndex={handleNewIndex}
+            onSelectIdx={handleNewIndex}
             chapterTitleArray={chapterTitleArray}
             currentIndex={currentIndex}
-            handleNext={handleNext}
+            onNext={handleNext}
           ></HomePage>
         </Carousel.Slide>
         <Carousel.Slide
