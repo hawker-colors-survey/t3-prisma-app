@@ -7,11 +7,7 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
+
 
 // Necessary for Next auth
 model Account {
@@ -28,6 +24,7 @@ model Account {
     id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    refresh_token_expires_in Int?
 
     @@unique([provider, providerAccountId])
 }
@@ -48,6 +45,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    answers       Profile[]
 }
 
 model VerificationToken {
@@ -56,4 +54,50 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Profile {
+    id                  String @id @default(cuid())
+    userId              String
+    user                User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    year                Int
+    location            String
+    frequency           Int
+    isHalal             Boolean
+    isColourBlind       Boolean
+    colourPreference    String
+}
+
+model Survey{
+    id                      String @id @default(cuid())
+    bak_chor_mee            String
+    ban_mian                String
+    carrot_cake             String
+    char_kway_teow          String
+    chendol                 String
+    chicken_chop            String
+    chicken_teriyaki_don    String
+    economic_rice           String
+    fishball_noodles        String
+    guo_tie                 String
+    hainanese_chicken_rice  String
+    hokkien_mee             String
+    indian_rojak            String
+    kaya_toast_and_eggs     String
+    kway_chap               String
+    laksa                   String
+    mala_xiang_guo          String
+    mee_goreng              String
+    mee_rebus               String
+    nasi_briyani            String
+    nasi_lemak              String
+    oyster_omelette         String
+    prawn_noodles           String
+    roast_meat_rice         String
+    roti_prata              String
+    satay                   String
+    sliced_fish_soup        String
+    sup_kambing             String
+    wanton_mee              String
+    yong_tau_foo            String
 }

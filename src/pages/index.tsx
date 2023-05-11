@@ -1,37 +1,34 @@
 import { type NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { api } from "~/src/utils/api";
+
+import { useHawkerSession } from "../hooks";
+import { SignIn } from "../feature/auth";
+import { Button, Stack } from "@mantine/core";
+import { signOut } from "next-auth/react";
+import { HC_LOCAL_KEY } from "../constants/keys";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const { data } = useHawkerSession();
+  // const user = api.user.getUser;
 
+  function handleClearGuest() {
+    localStorage?.removeItem(HC_LOCAL_KEY);
+    window.location.reload();
+  }
+
+  if (data === undefined) return <></>;
   return (
-    <>
-      <p>{hello.data ? hello.data.greeting : "Loading tRPC query..."}</p>
-      <AuthShowcase />
-    </>
+    <Stack align="center">
+      <pre>You are {JSON.stringify(data, null, 2)}</pre>
+      <SignIn />
+
+      {data?.type === "provider" && (
+        <Button onClick={() => void signOut()}>Sign out</Button>
+      )}
+      {data?.type === "guest" && (
+        <Button onClick={handleClearGuest}>Clearing out guest</Button>
+      )}
+    </Stack>
   );
 };
 
 export default Home;
-
-const AuthShowcase = () => {
-  const { data } = useSession();
-
-  const { data: secretMessage } = api.example.getSecretMessage.useQuery(
-    undefined,
-    { enabled: Boolean(data?.user) }
-  );
-
-  return (
-    <>
-      <p>
-        {data && <span>Logged in as {data.user?.name}</span>}
-        {secretMessage && <span> - {secretMessage}</span>}
-      </p>
-      <button onClick={data ? () => void signOut() : () => void signIn()}>
-        {data ? "Sign out" : "Sign in"}
-      </button>
-    </>
-  );
-};
