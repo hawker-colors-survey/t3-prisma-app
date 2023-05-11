@@ -4,7 +4,7 @@ import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 import { useState } from "react";
 import { BlackButton } from "~/src/components";
 
-export function JustFollowYellow({ handleBack }: { handleBack: () => void }) {
+export function JustFollowYellow({ onBack }: { onBack: () => void }) {
   const fileName = "just-follow-yellow";
   const headerNode = (
     <>
@@ -26,7 +26,7 @@ export function JustFollowYellow({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

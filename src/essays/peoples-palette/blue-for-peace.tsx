@@ -2,7 +2,7 @@ import { QuoteSpan } from "~/src/components/Text";
 import { Stack, Text, Title, Image } from "@mantine/core";
 import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 
-export function BlueForPeace({ handleBack }: { handleBack: () => void }) {
+export function BlueForPeace({ onBack }: { onBack: () => void }) {
   const fileName = "blue-for-peace";
   const headerNode = (
     <>
@@ -27,7 +27,7 @@ export function BlueForPeace({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

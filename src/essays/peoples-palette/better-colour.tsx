@@ -4,7 +4,7 @@ import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 import { useState } from "react";
 import { BlackButton } from "~/src/components";
 
-export function BetterColour({ handleBack }: { handleBack: () => void }) {
+export function BetterColour({ onBack }: { onBack: () => void }) {
   const fileName = "better-colour";
   const headerNode = (
     <>
@@ -29,7 +29,7 @@ export function BetterColour({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

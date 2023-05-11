@@ -78,16 +78,16 @@ export default function PeoplesPaletteHome() {
           key={currentIndex}
           style={{ width: "100dvw", overflowY: "scroll" }}
         >
-          {currentIndex == 0 && <AuspiciousOrange handleBack={handleBack} />}
-          {currentIndex == 1 && <BlueForPeace handleBack={handleBack} />}
-          {currentIndex == 2 && <JustFollowYellow handleBack={handleBack} />}
-          {currentIndex == 3 && <BetterColour handleBack={handleBack} />}
-          {currentIndex == 4 && <ColourYouOrder handleBack={handleBack} />}
-          {currentIndex == 5 && <ModernisingCreation handleBack={handleBack} />}
-          {currentIndex == 6 && <RedHot handleBack={handleBack} />}
-          {currentIndex == 7 && <NeutralSigns handleBack={handleBack} />}
-          {currentIndex == 8 && <ElevatingIcon handleBack={handleBack} />}
-          {currentIndex == 9 && <SavingMemories handleBack={handleBack} />}
+          {currentIndex == 0 && <AuspiciousOrange onBack={handleBack} />}
+          {currentIndex == 1 && <BlueForPeace onBack={handleBack} />}
+          {currentIndex == 2 && <JustFollowYellow onBack={handleBack} />}
+          {currentIndex == 3 && <BetterColour onBack={handleBack} />}
+          {currentIndex == 4 && <ColourYouOrder onBack={handleBack} />}
+          {currentIndex == 5 && <ModernisingCreation onBack={handleBack} />}
+          {currentIndex == 6 && <RedHot onBack={handleBack} />}
+          {currentIndex == 7 && <NeutralSigns onBack={handleBack} />}
+          {currentIndex == 8 && <ElevatingIcon onBack={handleBack} />}
+          {currentIndex == 9 && <SavingMemories onBack={handleBack} />}
         </Carousel.Slide>
       </Carousel>
     </>

@@ -2,7 +2,7 @@ import { QuoteSpan } from "~/src/components/Text";
 import { Stack, Text, Title, Image } from "@mantine/core";
 import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 
-export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
+export function ElevatingIcon({ onBack }: { onBack: () => void }) {
   const fileName = "elevating-icon";
   const headerNode = (
     <>
@@ -21,7 +21,7 @@ export function ElevatingIcon({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

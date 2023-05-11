@@ -150,7 +150,7 @@ const IntroPages = ({ defaultState = initialState }) => {
           isLoading={isSubmitting}
           onNext={handleNext}
           answers={answers}
-          onBack={handleBack}
+          onBack={onBack}
           onSubmit={void handleSubmit}
         />
       </Box>

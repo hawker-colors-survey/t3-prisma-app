@@ -2,11 +2,7 @@ import { QuoteSpan } from "~/src/components/Text";
 import { Stack, Text, Title, Image } from "@mantine/core";
 import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 
-export function ModernisingCreation({
-  handleBack,
-}: {
-  handleBack: () => void;
-}) {
+export function ModernisingCreation({ onBack }: { onBack: () => void }) {
   const fileName = "modernising-creation";
   const headerNode = (
     <>
@@ -28,7 +24,7 @@ export function ModernisingCreation({
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

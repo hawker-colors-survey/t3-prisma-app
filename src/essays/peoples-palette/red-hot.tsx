@@ -12,7 +12,7 @@ import {
 import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 import { type CSSProperties, type ReactNode, useState } from "react";
 
-export function RedHot({ handleBack }: { handleBack: () => void }) {
+export function RedHot({ onBack }: { onBack: () => void }) {
   const fileName = "red-hot";
   const headerNode = (
     <>
@@ -34,7 +34,7 @@ export function RedHot({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>

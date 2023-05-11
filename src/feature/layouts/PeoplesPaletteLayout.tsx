@@ -1,27 +1,18 @@
+import type { ReactNode } from "react";
 import { Box, Center, Stack, Image, Space } from "@mantine/core";
 import { BlackButton, Button } from "~/src/components/Button";
-import { useRouter } from "next/router";
-import type { ReactNode } from "react";
 
 export function PeoplesPaletteLayout({
   headerFolder,
   headerNode,
   children,
-  handleBack,
+  onBack,
 }: {
   headerFolder?: string;
   headerNode: ReactNode;
   children: ReactNode;
-  handleBack: () => void;
+  onBack: () => void;
 }) {
-  const router = useRouter();
-
-  function handleClick() {
-    typeof handleBack === "undefined"
-      ? void router.push("/peoples-palette/home")
-      : handleBack();
-  }
-
   return (
     <Box
       style={{
@@ -61,7 +52,7 @@ export function PeoplesPaletteLayout({
           }}
         >
           <Center>
-            <BlackButton size="md" w="120px" onClick={handleClick}>
+            <BlackButton size="md" w="120px" onClick={onBack}>
               Home
             </BlackButton>
           </Center>
@@ -73,7 +64,7 @@ export function PeoplesPaletteLayout({
         <Stack spacing="lg">
           {children}
           <Center>
-            <BlackButton size="md" w="120px" onClick={handleClick}>
+            <BlackButton size="md" w="120px" onClick={onBack}>
               Home
             </BlackButton>
           </Center>

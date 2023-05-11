@@ -2,7 +2,7 @@ import { QuoteSpan } from "~/src/components/Text";
 import { Stack, Text, Title, Image, ScrollArea, Box } from "@mantine/core";
 import { PeoplesPaletteLayout } from "~/src/feature/layouts";
 
-export function SavingMemories({ handleBack }: { handleBack: () => void }) {
+export function SavingMemories({ onBack }: { onBack: () => void }) {
   const fileName = "saving-memories";
   const headerNode = (
     <>
@@ -21,7 +21,7 @@ export function SavingMemories({ handleBack }: { handleBack: () => void }) {
       <PeoplesPaletteLayout
         headerFolder={fileName}
         headerNode={headerNode}
-        handleBack={handleBack}
+        onBack={onBack}
       >
         <>
           <Text align="left">{bodyText[0]}</Text>
