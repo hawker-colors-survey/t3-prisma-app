@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { FieldsStructure, ResponseStructure } from "./types";
+import type { FieldsStructure, AirtableResponse } from "./types";
 export * from "./types";
 
 const MAIN_TABLE = "MainReceive";
@@ -28,7 +25,7 @@ export const postRecords = async (fields: any) => {
 
 export const getAllRecords = async (): Promise<FieldsStructure[]> => {
   let offset = "";
-  let data: ResponseStructure[] = [];
+  let data: AirtableResponse[] = [];
   let hasMoreRecords = true;
 
   while (hasMoreRecords) {

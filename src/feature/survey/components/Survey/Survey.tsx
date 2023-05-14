@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Center, Box } from "@mantine/core";
+
 import { Button } from "~/src/components";
 import {
   foods,
@@ -7,14 +8,12 @@ import {
   type ColourKey,
   type FoodDataType,
 } from "~/src/constants";
-import type {
-  IntroPageProps,
-  JourneyStateStructure,
-} from "~/src/feature/journey";
-import { useLocalStorage } from "~/src/hooks";
+
 import { SurveyColourGrid } from "./SurveyColourGrid";
 import { SurveyTitle } from "./SurveyTitle";
 import { SurveyCenter } from "./SurveyCenter";
+import type { Answers } from "~/src/feature/survey";
+import type { IntroPageProps } from "~/src/pages/intro/pages";
 
 const foodCache = foods.reduce((acc, curr, currIdx) => {
   acc[curr.name] = currIdx;
@@ -22,25 +21,20 @@ const foodCache = foods.reduce((acc, curr, currIdx) => {
 }, {} as Record<FoodKey, number>);
 
 const halalFoods = foods.filter((food) => food.isHalal);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const objLen = (obj: Record<string, any>) => Object.keys(obj).length;
-
-export type Answers = Record<FoodKey, ColourKey>;
 
 export const Survey = ({
   answers: prevAnswers,
   onSubmit,
   isLoading,
 }: IntroPageProps) => {
-  const { localState } =
-    useLocalStorage<JourneyStateStructure>("hawker_colours");
-  const { survey = {}, isHalal = false } = localState?.answers ?? {};
+  if (!prevAnswers || !prevAnswers.survey) {
+    throw new Error("No answers provided");
+  }
+  const { isHalal, survey } = prevAnswers;
 
   const [isDisabled, setIsDisabled] = useState(true);
-
-  const prevFood = prevAnswers.firstSurvey?.food as FoodKey;
-  const initialFood =
-    foods[randomizeIndex([prevFood, ...(Object.keys(survey) as FoodKey[])])];
+  const initialFood = foods[randomizeIndex(Object.keys(survey) as FoodKey[])];
 
   const [food, setFood] = useState<FoodDataType>(initialFood as FoodDataType);
   const [answers, setAnswers] = useState({
@@ -61,6 +55,7 @@ export const Survey = ({
   function handleClick() {
     setIsDisabled(true);
     if (haveReachedMax || haveAnsweredNumTimes) {
+      console.log({ total });
       onSubmit?.(total);
       return;
     }
@@ -80,19 +75,24 @@ export const Survey = ({
       p="xl"
     >
       <Box style={{ height: "87dvh" }}>
-        <SurveyTitle food={food} answers={answers} />
-        <SurveyCenter
-          food={food}
-          answers={answers}
-          isLoading={isLoading}
-          num={num}
-        />
-        <Box style={{ height: "22dvh" }}>
-          <SurveyColourGrid
-            selected={answers[food.name]}
-            onSelected={handleColourChange}
-          />
-        </Box>
+        {food && (
+          <>
+            {" "}
+            <SurveyTitle food={food} answers={answers} />
+            <SurveyCenter
+              food={food}
+              answers={answers}
+              isLoading={isLoading}
+              num={num}
+            />
+            <Box style={{ height: "22dvh" }}>
+              <SurveyColourGrid
+                selected={answers[food.name]}
+                onSelected={handleColourChange}
+              />
+            </Box>
+          </>
+        )}
       </Box>
       <Box style={{ width: "100%", height: "fit-content", bottom: "8dvh" }}>
         <Center>

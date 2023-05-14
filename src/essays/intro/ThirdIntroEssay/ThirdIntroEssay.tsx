@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Text, Center, Space, Image, Stack, Box, Title } from "@mantine/core";
 import { Button, Radio, RadioGroup } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
 import { Background } from "./Background";
 
 const options = ["Yes, I'm colour blind", "No, I'm not colour blind"];

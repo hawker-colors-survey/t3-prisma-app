@@ -27,7 +27,8 @@ export function Select({
     const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
     const idx = embla.scrollSnapList().findIndex((item) => progress <= item);
     const newIndex = idx === listLength ? idx - 1 : idx;
-    setActiveIndex(progress === 0 ? 0 : newIndex);
+    const positiveIndex = Math.max(0, newIndex);
+    setActiveIndex(progress === 0 ? 0 : positiveIndex);
   }, [embla]);
 
   useEffect(() => {

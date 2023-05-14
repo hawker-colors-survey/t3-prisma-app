@@ -22,14 +22,12 @@ export const userRouter = createTRPCRouter({
     .input(z.object({ guestEmail: z.string(), userEmail: z.string() }))
 
     .mutation(async ({ ctx, input }) => {
-      console.log("input", input);
       const guest = await ctx.prisma.user.findUnique({
         where: { email: input.guestEmail },
       });
       const user = await ctx.prisma.user.findUnique({
         where: { email: input.userEmail },
       });
-      // console.log({ guest, user });
 
       if (user === null) throw Error("User not found");
       if (guest === null) throw Error("Guest not found");

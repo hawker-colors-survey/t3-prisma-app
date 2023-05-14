@@ -3,20 +3,14 @@ import { Box, Center, Space, Stack, Text, Title } from "@mantine/core";
 
 import { foods } from "~/src/constants";
 import { BlackButton } from "~/src/components";
-import type {
-  IntroPageProps,
-  JourneyStateStructure,
-} from "~/src/feature/journey";
-import { useLocalStorage } from "~/src/hooks";
 import { ScreenshotButton } from "~/src/components/Button/ScreenshotButton";
+import type { IntroPageProps } from "~/src/pages/intro/pages";
 
 const halalFoods = foods.filter((item) => item.isHalal);
 
-export const SurveyCompleted = ({ onNext }: IntroPageProps) => {
+export const SurveyCompleted = ({ onNext, answers }: IntroPageProps) => {
   const screenshotRef = useRef<HTMLDivElement>(null);
-  const { localState } =
-    useLocalStorage<JourneyStateStructure>("hawker_colours");
-  const { survey = {}, isHalal = false } = localState?.answers ?? {};
+  const { survey = {}, isHalal = false } = answers ?? {};
 
   const dishesCompleted = Object.keys(survey).length;
   const maxDishes = isHalal ? halalFoods.length : foods.length;

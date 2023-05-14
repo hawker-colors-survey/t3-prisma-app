@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
-import { v4 as uuid } from "uuid";
+import { useState } from "react";
 import { Box, Center, Image, Title, Stack } from "@mantine/core";
 
 import { Select, Button } from "~/src/components";
 import { type FoodDataType, foods } from "~/src/constants";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 const initialFoodIdx = 4;
 
 export const FavouriteDish = ({ onNext }: IntroPageProps) => {
-  const userId = uuid();
   const [foodIdx, setFoodIdx] = useState<number>(-1);
   const [isInitial, setIsInitial] = useState(0);
 
@@ -18,12 +16,7 @@ export const FavouriteDish = ({ onNext }: IntroPageProps) => {
     else setFoodIdx(idx);
   }
 
-  useEffect(() => {
-    // TODO put userId into hawker_colours
-    if (!localStorage.getItem("userId")) localStorage.setItem("userId", userId);
-  }, [userId]);
-
-  const food = foods[foodIdx ?? initialFoodIdx] as FoodDataType;
+  const food = foods[foodIdx > -1 ? foodIdx : initialFoodIdx] as FoodDataType;
 
   return (
     <>
@@ -52,6 +45,7 @@ export const FavouriteDish = ({ onNext }: IntroPageProps) => {
             onSelected={handleNewFood}
             style={{ marginTop: "-16px", zIndex: 0 }}
             initialSlide={initialFoodIdx}
+            loop={false}
           >
             {foods.map((item) => item.name)}
           </Select>
@@ -62,7 +56,7 @@ export const FavouriteDish = ({ onNext }: IntroPageProps) => {
           <Button
             size="sm"
             disabled={foodIdx === -1}
-            onClick={() => onNext({ index: foodIdx, food, userId })}
+            onClick={() => onNext(food.name)}
           />
         </Center>
       </Box>

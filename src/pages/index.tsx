@@ -4,16 +4,24 @@ import { useHawkerSession } from "../hooks";
 import { SignIn } from "../feature/auth";
 import { Button, Stack } from "@mantine/core";
 import { signOut } from "next-auth/react";
-import { HC_LOCAL_KEY } from "../constants/keys";
+import { HC_SESSION_KEY } from "../constants/keys";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const { data } = useHawkerSession();
+  const router = useRouter();
   // const user = api.user.getUser;
 
   function handleClearGuest() {
-    localStorage?.removeItem(HC_LOCAL_KEY);
+    localStorage?.removeItem(HC_SESSION_KEY);
     window.location.reload();
   }
+  
+  useEffect(() => {
+    router.push("/intro");
+    // TODO fetch for user answers and if incomplete, route to /intro
+  }, [data, router]);
 
   if (data === undefined) return <></>;
   return (

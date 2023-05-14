@@ -9,7 +9,8 @@ import {
 } from "@mantine/core";
 import { useState } from "react";
 import { Button, Radio, RadioGroup } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { ColourPref } from "~/src/feature/profile";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 const images: Record<string, string> = {
   white: "/images/stories/5DishesWhite.webp",
@@ -17,15 +18,15 @@ const images: Record<string, string> = {
 };
 
 export const ColourPreference = ({ onSubmit, isLoading }: IntroPageProps) => {
-  const [pref, setPref] = useState("");
+  const [pref, setPref] = useState<ColourPref | "">("");
   const { classes } = useStyles();
 
-  function handleColour(clr: string) {
+  function handleColour(clr: ColourPref) {
     return () => setPref(clr);
   }
 
   function handleSubmit() {
-    onSubmit?.(pref);
+    if (pref) onSubmit?.(pref);
   }
 
   return (

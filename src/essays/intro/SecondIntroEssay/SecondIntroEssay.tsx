@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Box, Center, Image, Space, Text } from "@mantine/core";
 import { Button } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
 import { Background } from "./Background";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 export const SecondIntroEssay = ({ onNext }: IntroPageProps) => {
   const [page, setPage] = useState(0);

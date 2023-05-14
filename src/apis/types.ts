@@ -1,46 +1,6 @@
-import type { ColourKey } from "~/src/constants";
+import type { ColourKey, FoodKey } from "~/src/constants";
 
-export type FoodKey =
-  | "Bak Chor Mee"
-  | "Ban Mian"
-  | "Carrot Cake"
-  | "Char Kway Teow"
-  | "Chendol"
-  | "Chicken Chop"
-  | "Chicken Teriyaki Don"
-  | "Economic Rice"
-  | "Fishball Noodles"
-  | "Guo Tie"
-  | "Hainanese Chicken Rice"
-  | "Hokkien Mee"
-  | "Indian Rojak"
-  | "Kaya Toast and Eggs"
-  | "Kway Chap"
-  | "Laksa"
-  | "Mala Xiang Guo"
-  | "Mee Goreng"
-  | "Mee Rebus"
-  | "Nasi Briyani"
-  | "Nasi Lemak"
-  | "Oyster Omelette"
-  | "Prawn Noodles"
-  | "Roast Meat Rice"
-  | "Roti Prata"
-  | "Satay"
-  | "Sliced Fish Soup"
-  | "Sup Kambing"
-  | "Wanton Mee"
-  | "Yong Tau Foo";
-
-export type FoodDataType = {
-  name: FoodKey;
-  isHalal: boolean;
-  recordId: string;
-  file: string;
-  colours: ColourKey[];
-};
-
-export type ResponseStructure = {
+export type AirtableResponse = {
   id: string;
   createdTime: string;
   fields: FieldsStructure;
@@ -57,7 +17,7 @@ export type FieldsStructure = Foods & {
   frequency: number;
   isHalal: boolean;
   isColourBlind: boolean;
-  ColourPreference: ColourPref;
+  colourPreference: ColourPref;
 };
 
 export type ColourPref = "white" | "coloured";

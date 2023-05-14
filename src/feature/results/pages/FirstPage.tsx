@@ -20,10 +20,10 @@ export function FirstPage({ onNext }: { onNext: () => void }) {
 
       const colourPreferenceObj = records.reduce(
         (acc: PreferenceRatio, fields) => {
-          const { ColourPreference } = fields;
-          if (typeof ColourPreference === "undefined") return acc;
-          if (acc[`${ColourPreference}`]) acc[`${ColourPreference}`] += 1;
-          else acc[`${ColourPreference}`] = 1;
+          const { colourPreference } = fields;
+          if (typeof colourPreference === "undefined") return acc;
+          if (acc[`${colourPreference}`]) acc[`${colourPreference}`] += 1;
+          else acc[`${colourPreference}`] = 1;
           return acc;
         },
         initialValues

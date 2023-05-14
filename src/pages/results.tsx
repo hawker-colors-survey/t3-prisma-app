@@ -1,5 +1,4 @@
 import { HomeNavigation, NavigationModal } from "~/src/feature/navigation";
-// import ShareableResults from "~/src/feature/results/components/ShareableResults";
 import { FirstPage, SecondPage } from "~/src/feature/results/pages";
 import { Space, Stack, Title } from "@mantine/core";
 import { useState } from "react";

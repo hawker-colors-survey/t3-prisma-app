@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Text } from "@mantine/core";
 
 import { getAllRecords } from "~/src/apis";
-import type { FoodKey, FieldsStructure } from "~/src/apis/types";
-import type { ColourKey } from "~/src/constants";
+import type { FieldsStructure } from "~/src/apis/types";
+import type { ColourKey, FoodKey } from "~/src/constants";
 import type { FilterState } from "~/src/feature/results/reducer";
 import {
   ColourStack,

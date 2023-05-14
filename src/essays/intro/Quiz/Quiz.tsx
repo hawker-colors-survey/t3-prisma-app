@@ -12,7 +12,7 @@ import {
 import { Button, Radio, RadioGroup } from "~/src/components";
 import { FiCheck } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 const options = [
   "Pink, blue and orange",

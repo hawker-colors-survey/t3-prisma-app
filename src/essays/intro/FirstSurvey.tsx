@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Image, Title, Center, Box, SimpleGrid, Space } from "@mantine/core";
 import { type ColourKey, foods, type FoodDataType } from "~/src/constants";
 import { Button, PinButton } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 export const FirstSurvey = ({ onNext, answers }: IntroPageProps) => {
   const [colour, setColour] = useState<ColourKey | "">("");
-  const foodNumber = answers["favouriteDish"]?.index ?? 0;
+  const foodNumber =
+    foods.findIndex((food) => food.name === answers?.dish) ?? 0;
+
   const food = foods[foodNumber] as FoodDataType;
 
   const title = (
@@ -75,7 +77,7 @@ export const FirstSurvey = ({ onNext, answers }: IntroPageProps) => {
         <Center>
           <Button
             size="sm"
-            onClick={() => colour && onNext({ food: food.name, colour })}
+            onClick={() => colour && onNext(colour)}
             disabled={!colour}
           />
         </Center>

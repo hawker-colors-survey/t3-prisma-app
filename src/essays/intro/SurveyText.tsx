@@ -1,6 +1,6 @@
 import { Box, Center, Space, Stack, Text, Title } from "@mantine/core";
 import { Button } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
 
 export const SurveyText = ({ onNext }: IntroPageProps) => {
   return (

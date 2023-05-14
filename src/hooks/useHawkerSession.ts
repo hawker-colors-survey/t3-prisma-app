@@ -1,16 +1,18 @@
 import type { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { HC_LOCAL_KEY } from "~/src/constants/keys";
+import { HC_SESSION_KEY } from "~/src/constants/keys";
 import { api } from "../utils/api";
 
-export type LocalState = {
-  session: { data: HawkerSession };
+export type SessionState = {
+  session: HawkerSession;
 };
 
 type HawkerSession = Session & {
   type: "guest" | "provider";
 };
+
+// This hook merges guest session state in localStorage with provider session state
 
 export const useHawkerSession = () => {
   const { data } = useSession();
@@ -20,7 +22,7 @@ export const useHawkerSession = () => {
   useEffect(() => {
     if (!localStorage) return;
 
-    const localState = localStorage.getItem(HC_LOCAL_KEY);
+    const localState = localStorage.getItem(HC_SESSION_KEY);
 
     if (typeof localState !== "string") {
       return data
@@ -28,19 +30,17 @@ export const useHawkerSession = () => {
         : setSessionData(null);
     }
 
-    const parsedState = JSON.parse(localState) as LocalState;
+    const parsedState = JSON.parse(localState) as SessionState;
     // TODO Refresh session if expired or error
-    if (!parsedState.session) throw new Error("Local session object not found");
+    if (!parsedState) throw new Error("Local session object not found");
     if (data === null || data === undefined) {
-      setSessionData({
-        ...(parsedState.session.data as Session),
-        type: "guest",
-      });
+      setSessionData({ ...parsedState.session, type: "guest" });
     } else {
-      if (data.user.id !== parsedState.session.data.user.id) {
-        localStorage.removeItem(HC_LOCAL_KEY);
+      if (data.user.id !== parsedState.session.user.id) {
+        // handles session storage and local storage clash
+        localStorage.removeItem(HC_SESSION_KEY);
         updateUser.mutate({
-          guestEmail: parsedState.session.data.user.email || "",
+          guestEmail: parsedState.session.user.email || "",
           userEmail: data.user.email || "",
         });
       }
@@ -51,3 +51,11 @@ export const useHawkerSession = () => {
 
   return { data: sessionData, setData: setSessionData };
 };
+
+// Guest mode:
+// session: { type: "guest", user: { name: "Guest", email: "" }}
+// journey: { step: 5, answers: {} }}
+
+// Provider mode:
+// session: { type: "provider", user: { name: "Provider", email: "" }}
+// journey: { step: 5, answers: {} }}

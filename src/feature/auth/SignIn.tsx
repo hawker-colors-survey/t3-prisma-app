@@ -6,8 +6,8 @@ import type { BuiltInProviderType } from "next-auth/providers";
 import { Box, Button } from "@mantine/core";
 import { api } from "~/src/utils/api";
 import { v4 as uuid } from "uuid";
-import { HC_LOCAL_KEY } from "~/src/constants/keys";
-import type { LocalState } from "~/src/hooks";
+import { HC_SESSION_KEY } from "~/src/constants/keys";
+import type { SessionState } from "~/src/hooks";
 
 type ProviderId = LiteralUnion<BuiltInProviderType, string>;
 type Providers = Record<ProviderId, ClientSafeProvider> | null;
@@ -23,17 +23,15 @@ export function SignIn({ callbackUrl = "" }: { callbackUrl?: string }) {
     const now = new Date();
     const expirationTime = new Date(now.getTime() + 12 * 60 * 60 * 1000);
 
-    const guestState: LocalState = {
+    const guestState: SessionState = {
       session: {
-        data: {
-          type: "guest",
-          user: { id, email: `${id}@example.com`, name: "Guest User" },
-          expires: expirationTime.toISOString(),
-        },
+        type: "guest",
+        user: { id, email: `${id}@example.com`, name: "Guest User" },
+        expires: expirationTime.toISOString(),
       },
     };
 
-    localStorage.setItem(HC_LOCAL_KEY, JSON.stringify(guestState));
+    localStorage.setItem(HC_SESSION_KEY, JSON.stringify(guestState));
     window.location.reload();
   }
 

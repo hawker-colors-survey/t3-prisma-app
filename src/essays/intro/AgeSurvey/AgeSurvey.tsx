@@ -11,7 +11,8 @@ import {
 } from "@mantine/core";
 
 import { Button } from "~/src/components";
-import type { IntroPageProps } from "~/src/feature/journey";
+import type { IntroPageProps } from "~/src/pages/intro";
+
 import { Background } from "./Background";
 import { Numpad } from "./Numpad";
 
