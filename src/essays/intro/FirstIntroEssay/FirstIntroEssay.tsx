@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { Button } from "~/src/components";
 import { Background } from "./Background";
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 export const FirstIntroEssay = ({ onNext }: IntroPageProps) => {
   const [step, setStep] = useState(0);

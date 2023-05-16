@@ -9,30 +9,29 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
-  const { data } = useHawkerSession();
+  const { session } = useHawkerSession();
   const router = useRouter();
-  // const user = api.user.getUser;
 
   function handleClearGuest() {
     localStorage?.removeItem(HC_SESSION_KEY);
     window.location.reload();
   }
-  
+
   useEffect(() => {
     router.push("/intro");
     // TODO fetch for user answers and if incomplete, route to /intro
-  }, [data, router]);
+  }, [session, router]);
 
-  if (data === undefined) return <></>;
+  if (session === undefined) return <></>;
   return (
     <Stack align="center">
-      <pre>You are {JSON.stringify(data, null, 2)}</pre>
+      <pre>You are {JSON.stringify(session, null, 2)}</pre>
       <SignIn />
 
-      {data?.type === "provider" && (
+      {session?.type === "provider" && (
         <Button onClick={() => void signOut()}>Sign out</Button>
       )}
-      {data?.type === "guest" && (
+      {session?.type === "guest" && (
         <Button onClick={handleClearGuest}>Clearing out guest</Button>
       )}
     </Stack>

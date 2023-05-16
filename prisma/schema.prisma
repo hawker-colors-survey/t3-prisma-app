@@ -8,95 +8,101 @@ datasource db {
 }
 
 model Profile {
-    id                  String  @id @default(cuid())
-    userId              String
-    surveyId            String
-    age                 Int
-    location            String
-    frequency           Int
-    isHalal             Boolean
-    isColourBlind       Boolean
-    colourPreference    String
+    id                  String      @id @default(cuid())
+    user                User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId              String      @unique
+    survey              Survey?     @relation(fields: [surveyId], references: [id])
+    surveyId            Int?        @unique
+    age                 Int?
+    location            String?
+    frequency           Int?
+    isHalal             Boolean?
+    isColourBlind       Boolean?
+    colourPreference    String?
+    step                Int
+    dish                String?
+    dishColour          String?
 }
 
 model Survey{
-    id                      String @id @default(cuid())
-    bak_chor_mee            String
-    ban_mian                String
-    carrot_cake             String
-    char_kway_teow          String
-    chendol                 String
-    chicken_chop            String
-    chicken_teriyaki_don    String
-    economic_rice           String
-    fishball_noodles        String
-    guo_tie                 String
-    hainanese_chicken_rice  String
-    hokkien_mee             String
-    indian_rojak            String
-    kaya_toast_and_eggs     String
-    kway_chap               String
-    laksa                   String
-    mala_xiang_guo          String
-    mee_goreng              String
-    mee_rebus               String
-    nasi_briyani            String
-    nasi_lemak              String
-    oyster_omelette         String
-    prawn_noodles           String
-    roast_meat_rice         String
-    roti_prata              String
-    satay                   String
-    sliced_fish_soup        String
-    sup_kambing             String
-    wanton_mee              String
-    yong_tau_foo            String
+    id                      Int      @id @default(autoincrement())
+    bak_chor_mee            String?
+    ban_mian                String?
+    carrot_cake             String?
+    char_kway_teow          String?
+    chendol                 String?
+    chicken_chop            String?
+    chicken_teriyaki_don    String?
+    economic_rice           String?
+    fishball_noodles        String?
+    guo_tie                 String?
+    hainanese_chicken_rice  String?
+    hokkien_mee             String?
+    indian_rojak            String?
+    kaya_toast_and_eggs     String?
+    kway_chap               String?
+    laksa                   String?
+    mala_xiang_guo          String?
+    mee_goreng              String?
+    mee_rebus               String?
+    nasi_briyani            String?
+    nasi_lemak              String?
+    oyster_omelette         String?
+    prawn_noodles           String?
+    roast_meat_rice         String?
+    roti_prata              String?
+    satay                   String?
+    sliced_fish_soup        String?
+    sup_kambing             String?
+    wanton_mee              String?
+    yong_tau_foo            String?
+    profile                 Profile?
 }
 
 
 // Necessary for Next auth
 model Account {
-    id                String  @id @default(cuid())
+    id                String    @id @default(cuid())
     userId            String
+    user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? @db.Text
-    access_token      String? @db.Text
+    refresh_token     String?   @db.Text
+    access_token      String?   @db.Text
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? @db.Text
+    id_token          String?   @db.Text
     session_state     String?
-    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
     refresh_token_expires_in Int?
 
     @@unique([provider, providerAccountId])
 }
 
 model Session {
-    id           String   @id @default(cuid())
-    sessionToken String   @unique
-    userId       String
-    expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    id              String      @id @default(cuid())
+    sessionToken    String      @unique
+    userId          String
+    expires         DateTime
+    user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-    id            String    @id @default(cuid())
-    name          String?
-    email         String?   @unique
-    emailVerified DateTime?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
+    id              String      @id @default(cuid())
+    name            String?
+    email           String?     @unique
+    emailVerified   DateTime?
+    image           String?
+    accounts        Account[]
+    sessions        Session[]
+    profile         Profile?
 }
 
 model VerificationToken {
-    identifier String
-    token      String   @unique
-    expires    DateTime
-
+    identifier      String
+    token           String      @unique
+    expires         DateTime
     @@unique([identifier, token])
 }
 

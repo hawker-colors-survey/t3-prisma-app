@@ -1,6 +1,6 @@
 import { Center, Space, Stack, Text, createStyles, Image } from "@mantine/core";
 import { Button } from "~/src/components";
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 export const FourthIntroEssay = ({ onNext }: IntroPageProps) => {
   const { classes } = useStyles();

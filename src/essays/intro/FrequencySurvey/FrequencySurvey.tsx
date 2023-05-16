@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Center, Title, Box, Space, Stack } from "@mantine/core";
 
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 import { Button, Radio, RadioGroup } from "~/src/components";
 
 import { CrazyPlates } from "./CrazyPlates";

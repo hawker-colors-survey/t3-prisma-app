@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/src/server/api/trpc";
 
 const surveyInputSchema = z.object({
-  // userId: z.string(),
+  id: z.number().int(),
   bak_chor_mee: z.string().optional(),
   ban_mian: z.string().optional(),
   carrot_cake: z.string().optional(),
@@ -36,12 +36,29 @@ const surveyInputSchema = z.object({
 });
 
 export const surveyRouter = createTRPCRouter({
-  postSurvey: publicProcedure
+  getSurvey: publicProcedure
+    .input(z.object({ id: z.number().int() }))
+    .query(async ({ ctx, input }) => {
+      const survey = await ctx.prisma.survey.findFirst({
+        where: { id: input.id },
+      });
+      return survey;
+    }),
+  createSurvey: publicProcedure.mutation(async ({ ctx }) => {
+    const survey = await ctx.prisma.survey.create({ data: {} });
+    return survey;
+  }),
+  patchSurvey: publicProcedure
     .input(surveyInputSchema)
     .mutation(async ({ ctx, input }) => {
-      // console.log(input, ctx);
-      // ctx.prisma.survey.create({});
-      console.log("Wassup from surveyrouter");
-      console.log(input);
+      const survey = await ctx.prisma.survey.findFirst({
+        where: { id: input.id },
+      });
+      const mergedSurvey = { ...survey, ...input };
+      const updatedSurvey = await ctx.prisma.survey.update({
+        where: { id: input.id },
+        data: mergedSurvey,
+      });
+      return updatedSurvey;
     }),
 });

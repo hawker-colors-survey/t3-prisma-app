@@ -1,5 +1,5 @@
 import { foods } from "~/src/constants";
-import type { FilterOption } from "./reducer";
+import type { FilterOption, FoodOption } from "./reducer";
 
 const locations: FilterOption[] = [
   { value: "any", label: "any" },
@@ -19,7 +19,7 @@ const ages: FilterOption[] = [
   { value: "60", label: "60 and over" },
 ];
 
-const foodOptions: FilterOption[] = foods.map((food) => ({
+const foodOptions: FoodOption[] = foods.map((food) => ({
   label: food.name,
   value: food.file,
 }));

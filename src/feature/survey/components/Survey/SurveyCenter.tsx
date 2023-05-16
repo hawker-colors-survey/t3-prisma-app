@@ -1,13 +1,13 @@
 import type { FoodDataType } from "~/src/constants";
 import { createStyles, Title, Box, Stack, Flex } from "@mantine/core";
-import type { Answers } from "~/src/feature/survey";
+import type { SurveyAnswers } from "~/src/feature/survey";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const objLen = (obj: Record<string, any>) => Object.keys(obj).length;
 
 type SurveyCenterProps = {
   food: FoodDataType;
-  answers: Answers;
+  answers: SurveyAnswers;
   isLoading?: boolean;
   num: number;
 };

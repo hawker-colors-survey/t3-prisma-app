@@ -4,7 +4,7 @@ import { Center, Box } from "@mantine/core";
 import { Button } from "~/src/components";
 import {
   foods,
-  type FoodKey,
+  type FoodFile,
   type ColourKey,
   type FoodDataType,
 } from "~/src/constants";
@@ -12,58 +12,60 @@ import {
 import { SurveyColourGrid } from "./SurveyColourGrid";
 import { SurveyTitle } from "./SurveyTitle";
 import { SurveyCenter } from "./SurveyCenter";
-import type { Answers } from "~/src/feature/survey";
-import type { IntroPageProps } from "~/src/pages/intro/pages";
+import type { SurveyAnswers } from "~/src/feature/survey";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 const foodCache = foods.reduce((acc, curr, currIdx) => {
-  acc[curr.name] = currIdx;
+  acc[curr.file] = currIdx;
   return acc;
-}, {} as Record<FoodKey, number>);
+}, {} as Record<FoodFile, number>);
 
 const halalFoods = foods.filter((food) => food.isHalal);
 const objLen = (obj: Record<string, any>) => Object.keys(obj).length;
 
 export const Survey = ({
   answers: prevAnswers,
+  survey,
   onSubmit,
   isLoading,
 }: IntroPageProps) => {
-  if (!prevAnswers || !prevAnswers.survey) {
-    throw new Error("No answers provided");
-  }
-  const { isHalal, survey } = prevAnswers;
+  if (!prevAnswers) throw new Error("No answers provided");
+  const { isHalal } = prevAnswers;
 
   const [isDisabled, setIsDisabled] = useState(true);
-  const initialFood = foods[randomizeIndex(Object.keys(survey) as FoodKey[])];
+  const initialFood = foods[randomizeIndex(Object.keys(survey) as FoodFile[])];
 
   const [food, setFood] = useState<FoodDataType>(initialFood as FoodDataType);
   const [answers, setAnswers] = useState({
-    [food.name]: "",
-  } as Answers);
+    [food.file]: "",
+  } as SurveyAnswers);
 
-  const total: Answers = { ...survey, ...answers };
+  const total: SurveyAnswers = { ...survey, ...answers };
   const maxDishes = isHalal ? halalFoods.length : foods.length;
   const num = maxDishes - objLen(survey) < 5 ? maxDishes - objLen(survey) : 5;
   const haveReachedMax = objLen(total) === maxDishes;
   const haveAnsweredNumTimes = objLen(answers) === num;
 
   function handleColourChange(colour: ColourKey) {
-    setAnswers({ ...answers, [food.name]: colour });
+    setAnswers({ ...answers, [food.file]: colour });
     setIsDisabled(false);
   }
 
   function handleClick() {
     setIsDisabled(true);
     if (haveReachedMax || haveAnsweredNumTimes) {
-      console.log({ total });
       onSubmit?.(total);
+      setIsDisabled(false);
       return;
     }
 
-    const newFoodIdx = randomizeIndex(Object.keys(total) as FoodKey[], isHalal);
+    const newFoodIdx = randomizeIndex(
+      Object.keys(total) as FoodFile[],
+      isHalal as boolean
+    );
     const newFood = foods[newFoodIdx] as FoodDataType;
     setFood(newFood);
-    setAnswers({ ...answers, [newFood.name]: "" });
+    setAnswers({ ...answers, [newFood.file]: "" });
   }
 
   return (
@@ -77,7 +79,6 @@ export const Survey = ({
       <Box style={{ height: "87dvh" }}>
         {food && (
           <>
-            {" "}
             <SurveyTitle food={food} answers={answers} />
             <SurveyCenter
               food={food}
@@ -87,7 +88,7 @@ export const Survey = ({
             />
             <Box style={{ height: "22dvh" }}>
               <SurveyColourGrid
-                selected={answers[food.name]}
+                selected={answers[food.file]}
                 onSelected={handleColourChange}
               />
             </Box>
@@ -109,7 +110,7 @@ export const Survey = ({
   );
 };
 
-function randomizeIndex(existingFood: FoodKey[], isHalal?: boolean) {
+function randomizeIndex(existingFood: FoodFile[], isHalal?: boolean) {
   const existingArray = existingFood.map((name) => foodCache[name]);
   let index = Math.floor(Math.random() * 30);
   const excludearray = [];

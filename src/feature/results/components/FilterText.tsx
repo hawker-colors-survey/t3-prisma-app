@@ -7,6 +7,7 @@ import { FilterSelect } from "./FilterSelect";
 import {
   type FilterOption,
   type FilterState,
+  type FoodOption,
   filterReducer,
   filters,
   initialState,
@@ -39,7 +40,7 @@ export const FilterText = ({
     setHasSubmitted(true);
   }
 
-  function handleFilterChange(option: FilterOption) {
+  function handleFilterChange(option: FilterOption | FoodOption) {
     setHasSubmitted(false);
     setPopupIdx(-1);
     dispatch({

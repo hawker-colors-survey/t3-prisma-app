@@ -3,7 +3,7 @@ import { Box, Center, Image, Title, Stack } from "@mantine/core";
 
 import { Select, Button } from "~/src/components";
 import { type FoodDataType, foods } from "~/src/constants";
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 const initialFoodIdx = 4;
 
@@ -56,7 +56,7 @@ export const FavouriteDish = ({ onNext }: IntroPageProps) => {
           <Button
             size="sm"
             disabled={foodIdx === -1}
-            onClick={() => onNext(food.name)}
+            onClick={() => onNext(food.file)}
           />
         </Center>
       </Box>

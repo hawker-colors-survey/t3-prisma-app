@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { Button, Radio, RadioGroup } from "~/src/components";
 import type { ColourPref } from "~/src/feature/profile";
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 const images: Record<string, string> = {
   white: "/images/stories/5DishesWhite.webp",

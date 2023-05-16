@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-
-import { Button as MantineButton } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 
 export const HomeNavigation = () => {
   const router = useRouter();
@@ -9,8 +8,16 @@ export const HomeNavigation = () => {
     return () => router.push(link);
   }
   return (
-    <MantineButton variant="unstyled" onClick={void handleClick("/home")}>
-      HOME SWEET HOME
-    </MantineButton>
+    <Box
+      onClick={handleClick("/home")}
+      style={{
+        left: "0px",
+        width: "100%",
+      }}
+    >
+      <Text fz={"22px"} fw={600} align="left">
+        Explore the stories behind Singapore&apos;s hawker colours
+      </Text>
+    </Box>
   );
 };

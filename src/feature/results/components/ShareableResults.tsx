@@ -1,31 +1,25 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// SHAREABLE RESULTS PAGE
-
-import { Box, Grid, Image, Stack, Button } from "@mantine/core";
-import { getRecordsByUserId } from "~/src/apis";
 import { useEffect, useState } from "react";
-import type { FieldsStructure } from "~/src/apis";
+import { Box, Grid, Image, Stack, Button } from "@mantine/core";
+
 import { FoodResultStack } from "~/src/feature/results";
 import { foods } from "~/src/constants";
 
 const dummyUserId = "9f894f2e-a2cc-43ed-9a90-8550c879e975"; // from TestReceive -> PARTIALLY FILLED
 
 export default function ShareableResults() {
-  const [data, setData] = useState<FieldsStructure>();
+  // const [data, setData] = useState<FieldsStructure>();
   useEffect(() => {
-    async function filterRecords(userId: string) {
-      const records = await getRecordsByUserId(userId);
-      setData(records.records[0].fields);
-    }
-    void filterRecords(dummyUserId);
+    // async function filterRecords(userId: string) {
+    //   const records = await getRecordsByUserId(userId);
+    //   setData(records.records[0].fields);
+    // }
+    // void filterRecords(dummyUserId);
   }, []);
 
-  const parsedFoods = foods.map(({ name, file }) => ({
-    file,
-    color: data?.[name] ?? "disabled",
-  }));
+  // const parsedFoods = foods.map(({ name, file }) => ({
+  //   file,
+  //   color: data?.[name] ?? "disabled",
+  // }));
 
   return (
     <Box
@@ -49,7 +43,7 @@ export default function ShareableResults() {
           style={{ marginTop: "-1px" }} // image pixel is off by 1px
         />
 
-        <Grid
+        {/* <Grid
           justify="center"
           align="start"
           grow
@@ -66,7 +60,7 @@ export default function ShareableResults() {
               />
             </Grid.Col>
           ))}
-        </Grid>
+        </Grid> */}
 
         <Image src="/images/misc/ResultsBGBottom.webp" alt="" fit="contain" />
 

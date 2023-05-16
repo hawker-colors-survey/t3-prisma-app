@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Center, Image, Space, Stack, Title } from "@mantine/core";
 import { Button, Radio, RadioGroup } from "~/src/components";
-import type { IntroPageProps } from "~/src/pages/intro";
+import type { IntroPageProps } from "~/src/feature/profile";
 import { Background } from "./Background";
 
 const options = [

@@ -4,7 +4,7 @@ import { Box, Center, Space, Stack, Text, Title } from "@mantine/core";
 import { foods } from "~/src/constants";
 import { BlackButton } from "~/src/components";
 import { ScreenshotButton } from "~/src/components/Button/ScreenshotButton";
-import type { IntroPageProps } from "~/src/pages/intro/pages";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 const halalFoods = foods.filter((item) => item.isHalal);
 

@@ -6,6 +6,14 @@ import {
 } from "~/src/server/api/trpc";
 
 export const userRouter = createTRPCRouter({
+  getUserById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const user = await ctx.prisma.user.findFirst({
+        where: { id: input.id },
+      });
+      return user;
+    }),
   createGuest: publicProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
@@ -15,6 +23,12 @@ export const userRouter = createTRPCRouter({
           email: `${input.id}@example.com`,
           name: "Guest User",
         },
+      });
+
+      const survey = await ctx.prisma.survey.create({ data: {} });
+
+      await ctx.prisma.profile.create({
+        data: { userId: anonymousAccount.id, step: 0, surveyId: survey.id },
       });
       return anonymousAccount;
     }),

@@ -11,10 +11,10 @@ import {
 } from "@mantine/core";
 
 import { Button } from "~/src/components";
-import type { IntroPageProps } from "~/src/pages/intro";
 
 import { Background } from "./Background";
 import { Numpad } from "./Numpad";
+import type { IntroPageProps } from "~/src/feature/profile";
 
 const maxValidYear = new Date().getFullYear() - 101;
 const minValidYear = new Date().getFullYear() - 13;
@@ -53,7 +53,7 @@ export const AgeSurvey = ({ onNext }: IntroPageProps) => {
     if (Number(age) > minValidYear) {
       setIsTooYoung(true);
       setAge("");
-    } else onNext(age);
+    } else onNext(Number(age));
   }
 
   const showError = isError || isTooYoung;

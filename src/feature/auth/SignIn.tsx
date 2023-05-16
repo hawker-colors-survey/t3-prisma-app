@@ -4,22 +4,23 @@ import type { ClientSafeProvider, LiteralUnion } from "next-auth/react";
 import type { BuiltInProviderType } from "next-auth/providers";
 
 import { Box, Button } from "@mantine/core";
-import { api } from "~/src/utils/api";
 import { v4 as uuid } from "uuid";
 import { HC_SESSION_KEY } from "~/src/constants/keys";
 import type { SessionState } from "~/src/hooks";
+import { useUser } from "./apis";
 
 type ProviderId = LiteralUnion<BuiltInProviderType, string>;
 type Providers = Record<ProviderId, ClientSafeProvider> | null;
 
 export function SignIn({ callbackUrl = "" }: { callbackUrl?: string }) {
   const [providers, setProviders] = useState<Providers>();
-  const createMutation = api.user.createGuest.useMutation();
+  const { createGuest } = useUser({});
   const { data, status } = useSession();
 
   function handleContinueAsGuest() {
     const id = uuid();
-    createMutation.mutate({ id });
+    createGuest({ id });
+
     const now = new Date();
     const expirationTime = new Date(now.getTime() + 12 * 60 * 60 * 1000);
 

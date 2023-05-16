@@ -1,21 +1,20 @@
 import { Image, Center, Title, Box } from "@mantine/core";
 import { type FoodDataType, colours } from "~/src/constants";
-import type { Answers } from "~/src/feature/survey";
+import type { SurveyAnswers } from "~/src/feature/survey";
 
-export const SurveyTitle = ({
-  food,
-  answers,
-}: {
+type SurveyTitleProps = {
   food: FoodDataType;
-  answers: Answers;
-}) => (
+  answers: SurveyAnswers;
+};
+
+export const SurveyTitle = ({ food, answers }: SurveyTitleProps) => (
   <Box style={{ height: "48dvh" }}>
     <Title order={1}>Which coloured</Title>
     <Title order={1}>tableware do you</Title>
     <Title order={1}>prefer for this dish?</Title>
     <Center style={{ height: "28dvh", position: "relative" }}>
       {colours.map((colour) => {
-        const showingColour = answers[food.name] || "White";
+        const showingColour = answers[food.file] || "White";
         return (
           <Image
             key={colour}
