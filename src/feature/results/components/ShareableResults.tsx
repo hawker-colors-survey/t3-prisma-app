@@ -23,18 +23,14 @@ export default function ShareableResults() {
 
   return (
     <Box
-      style={{
-        background: "url(/images/bg.png) center center/cover repeat",
-        position: "relative",
-      }}
+      style={{ background: "url(/images/bg.png) repeat", position: "relative" }}
       bg="blue"
     >
       <Stack
         spacing={0}
         justify="center"
         align="stretch"
-        style={{ backgroundColor: "#aaa" }}
-        bg="orange"
+        style={{ backgroundColor: "#AAAAA7" }}
       >
         <Image
           src="/images/misc/ResultsBGTop.webp"

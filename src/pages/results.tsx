@@ -1,7 +1,8 @@
-import { HomeNavigation, NavigationModal } from "~/src/feature/navigation";
-import { FirstPage, SecondPage } from "~/src/feature/results/pages";
-import { Space, Stack, Title } from "@mantine/core";
 import { useState } from "react";
+import { Navigation, NavigationModal } from "~/src/feature/navigation";
+// import ShareableResults from "~/src/feature/results/components/ShareableResults";
+import { FirstPage, SecondPage } from "~/src/feature/results/pages";
+import { Space, Stack, Title, Text } from "@mantine/core";
 
 export default function Results() {
   const [page, setPage] = useState(0);
@@ -15,15 +16,17 @@ export default function Results() {
 
 const ThirdPage = () => {
   return (
-    <Stack p="xl">
-      <NavigationModal />
-      <Title order={1} w="80%">
-        This is the results page!
-      </Title>
-      <Space h="10dvh" />
+    <Stack p={0}>
+      <Stack p="xl">
+        <NavigationModal />
+        <Title order={1}>Thank you for participating</Title>
+        <Text size="md">
+          Here are your hawker colours. Tap on the dish you wish to share.
+        </Text>
+      </Stack>
       {/* <ShareableResults /> */}
       <Space h="10dvh" />
-      <HomeNavigation />
+      <Navigation />
     </Stack>
   );
 };

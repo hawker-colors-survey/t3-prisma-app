@@ -1,6 +1,6 @@
 import { Center, Box, Image, Title, Text, Space } from "@mantine/core";
 import { Button, Select } from "~/src/components";
-import { chapters } from "~/src/pages/essays/peoples-palette/home";
+import { chapters } from "~/src/pages/essays/peoples-palette";
 
 const initialIndex = 0;
 
@@ -99,22 +99,6 @@ export function HomePage({
         overflowX: "hidden",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "25px",
-          right: "5%",
-          zIndex: 3,
-        }}
-      >
-        <Button
-          orientation="right"
-          size="sm"
-          onClick={() => {
-            // router.push('/peoples-palette/test-swipe');
-          }}
-        ></Button>
-      </div>
       <Box
         style={{
           padding: "5%",

@@ -13,6 +13,8 @@ import {
   ElevatingIcon,
   SavingMemories,
 } from "~/src/essays/peoples-palette";
+import { NavigationModal } from "~/src/feature/navigation";
+import { Stack } from "@mantine/core";
 import { HomePage } from "~/src/feature/layouts/peoples-palette";
 
 export const chapters = [
@@ -32,7 +34,7 @@ export const chapters = [
   { id: 10, title: "Saving Her Colourful Memories", folder: "saving-memories" },
 ];
 
-export default function PeoplesPaletteHome() {
+export default function PeoplesPalette() {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [isInitial, setIsInitial] = useState(0);
   const [embla, setEmbla] = useState<Embla | null>(null);
@@ -53,11 +55,27 @@ export default function PeoplesPaletteHome() {
   const chapterTitleArray = chapters.map((chapter) => chapter.title);
 
   return (
-    <>
+    <Stack
+      p={0}
+      spacing={0}
+      bg="#ddd"
+      style={{
+        height: "100dvh",
+        overflow: "hidden",
+      }}
+    >
+      <Stack
+        pt={"xl"}
+        pr={"xl"}
+        style={{ position: "fixed", top: 0, right: 0, zIndex: 100 }}
+      >
+        <NavigationModal />
+      </Stack>
       <Carousel
         orientation="vertical"
         slideSize="100%"
         align="start"
+        top={0}
         height="100dvh"
         draggable={false}
         getEmblaApi={setEmbla}
@@ -72,7 +90,7 @@ export default function PeoplesPaletteHome() {
             chapterTitleArray={chapterTitleArray}
             currentIndex={currentIndex}
             onNext={handleNext}
-          ></HomePage>
+          />
         </Carousel.Slide>
         <Carousel.Slide
           key={currentIndex}
@@ -90,6 +108,6 @@ export default function PeoplesPaletteHome() {
           {currentIndex == 9 && <SavingMemories onBack={handleBack} />}
         </Carousel.Slide>
       </Carousel>
-    </>
+    </Stack>
   );
 }

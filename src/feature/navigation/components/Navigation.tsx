@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 
 import { Box, Flex, Grid, Image, Stack, Text } from "@mantine/core";
 
+import { Button } from "~/src/components";
 import { links } from "../links";
 import { HomeNavigation } from "./HomeNavigation";
-import { Button } from "~/src/components";
 import { ColourBGNames, ImageFileNames, TextAligns } from "../utils";
 
 export const Navigation = () => {
@@ -35,18 +35,17 @@ export const Navigation = () => {
             style={{
               height: "auto",
             }}
+            mih={120}
           >
-            <Image
-              alt=""
-              maw={idx == lastIdx - 1 ? 100 : 150}
-              mih={120}
-              src={
-                lastIdx
-                  ? `/images/navigation-home/${ImageFileNames[idx]}.webp`
-                  : ""
-              }
-              style={{ zIndex: 10 + idx }}
-            />
+            {idx != lastIdx && (
+              <Image
+                alt=""
+                maw={idx == lastIdx - 1 ? 100 : 150}
+                mih={120}
+                src={`/images/navigation-home/${ImageFileNames[idx]}.webp`}
+                style={{ zIndex: 10 + idx }}
+              />
+            )}
           </Flex>,
           <Stack
             key={title}
@@ -141,6 +140,26 @@ export const NavigationStackModal = () => {
   function handleClick(link: string) {
     return () => router.push(link);
   }
+
+  const ColourBGNames = [
+    "YellowBG",
+    "BlueBG",
+    "PurpleBG",
+    "PinkBG",
+    "GreyBG",
+    "GreenBG",
+    "OrangeBG",
+  ];
+
+  const TextAligns = [
+    "center",
+    "flex-end",
+    "center",
+    "flex-end",
+    "flex-end",
+    "flex-end",
+    "flex-end",
+  ];
 
   return (
     <Stack
